@@ -40,3 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 !.env.example
+
+# original full-size photos (kept locally, not published or committed)
+/original-images/

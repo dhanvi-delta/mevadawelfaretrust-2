@@ -25,6 +25,13 @@ export interface OfficeBearer {
   photo: string;
 }
 
+export interface PhotoCommitteeGroup {
+  id: string;
+  title: string; // Gujarati
+  titleEn: string;
+  members: OfficeBearer[];
+}
+
 export interface CommitteeMember {
   serial: string; // original serial number (Gujarati digits)
   name: string;
@@ -85,7 +92,7 @@ export interface GalleryImage {
   height: number;
   alt: string;
   caption: string;
-  category: "assembly" | "committee" | "activities";
+  category: "year-2025" | "year-2022" | "assembly" | "committee" | "activities";
 }
 
 export interface ResourceDocument {

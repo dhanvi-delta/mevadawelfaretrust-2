@@ -1,11 +1,10 @@
 import { PageHero } from "@/components/shared/PageHero";
 import { PrintButton } from "@/components/shared/PrintButton";
-import { Reveal } from "@/components/shared/Reveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { CommitteeDirectory } from "@/components/trustees/CommitteeDirectory";
-import { OfficeBearerCard } from "@/components/trustees/OfficeBearerCard";
+import { CommitteeTabs } from "@/components/trustees/CommitteeTabs";
 import { site } from "@/data/content";
-import { committeeGroups, committeeTitleGu, officeBearers } from "@/data/trustees";
+import { committeeGroups, committeeTerm, committeeTitleGu, photoCommitteeGroups } from "@/data/trustees";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -34,13 +33,14 @@ export default function TrusteesPage() {
 
       <section className="relative overflow-hidden py-16 sm:py-20" aria-labelledby="bearers-heading">
         <div className="container-page">
-          <SectionHeading id="bearers-heading" eyebrow="Office bearers" title="Leadership of the Trust" />
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {officeBearers.map((p, i) => (
-              <Reveal key={p.slug} delay={(i % 3) * 80}>
-                <OfficeBearerCard person={p} priority={i < 3} />
-              </Reveal>
-            ))}
+          <SectionHeading
+            id="bearers-heading"
+            eyebrow={`Executive committee · ${committeeTerm.en}`}
+            title="Leadership of the Trust"
+            titleGu={`કારોબારી કમિટિ — ${committeeTerm.gu}`}
+          />
+          <div className="mt-10">
+            <CommitteeTabs groups={photoCommitteeGroups} />
           </div>
         </div>
       </section>
