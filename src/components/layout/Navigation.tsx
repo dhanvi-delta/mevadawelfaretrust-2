@@ -43,7 +43,7 @@ export function Navigation() {
 
   return (
     <nav ref={navRef} aria-label="Main" className="hidden xl:block">
-      <ul className="flex items-center gap-1">
+      <ul className="flex items-center gap-1.5">
         {mainNav.map((item, i) => {
           if (!item.children) {
             const active = isActive(pathname, item.href);
@@ -53,10 +53,10 @@ export function Navigation() {
                   href={item.href!}
                   aria-current={active ? "page" : undefined}
                   className={cn(
-                    "relative inline-flex h-8 items-center rounded-full px-3 text-[13px] font-semibold whitespace-nowrap transition-all duration-200",
+                    "relative inline-flex h-8 items-center rounded-full px-3.5 text-[13px] font-semibold whitespace-nowrap transition-all duration-200",
                     active
                       ? "bg-deep-teal text-white shadow-sm"
-                      : "text-ink/80 hover:bg-pale-teal/70 hover:text-deep-teal",
+                      : "text-navy/80 hover:bg-pale-teal/70 hover:text-deep-teal",
                   )}
                 >
                   {item.label}
@@ -94,10 +94,10 @@ export function Navigation() {
                   }
                 }}
                 className={cn(
-                  "inline-flex h-8 items-center gap-1 rounded-full px-3 text-[13px] font-semibold whitespace-nowrap transition-all duration-200",
+                  "inline-flex h-8 items-center gap-1 rounded-full px-3.5 text-[13px] font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer",
                   groupActive || expanded
                     ? "bg-deep-teal text-white shadow-sm"
-                    : "text-ink/80 hover:bg-pale-teal/70 hover:text-deep-teal",
+                    : "text-navy/80 hover:bg-pale-teal/70 hover:text-deep-teal",
                 )}
               >
                 {item.label}
@@ -125,7 +125,7 @@ export function Navigation() {
                               "flex items-center justify-between rounded-xl px-3.5 py-2 text-[13px] font-medium transition-colors",
                               subActive
                                 ? "bg-pale-teal text-deep-teal font-semibold"
-                                : "text-ink/80 hover:bg-mist hover:text-deep-teal",
+                                : "text-navy/80 hover:bg-mist hover:text-deep-teal",
                             )}
                           >
                             <span>{sub.label}</span>

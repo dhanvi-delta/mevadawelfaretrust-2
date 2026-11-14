@@ -6,7 +6,7 @@ import { telHref } from "@/lib/utils";
 export function OfficeBearerCard({ person, priority = false }: { person: OfficeBearer; priority?: boolean }) {
   const tel = telHref(person.phone);
   return (
-    <article className="card group relative flex h-full flex-col items-center p-6 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-lift bg-gradient-to-br from-white via-white to-pale-teal/20 border border-line">
+    <article className="card group relative flex h-full flex-col items-center p-6 text-center rounded-[20px] bg-gradient-to-br from-white via-white to-pale-teal/20 border border-line shadow-[0_14px_40px_rgba(7,54,74,0.08)] transition-all duration-300 hover:-translate-y-2 hover:shadow-lift">
       {/* Photo frame with arch curve and decorative gold ring */}
       <div className="relative mb-4">
         <div
@@ -26,7 +26,7 @@ export function OfficeBearerCard({ person, priority = false }: { person: OfficeB
       </div>
 
       {/* Role badge */}
-      <span className="inline-flex items-center rounded-full bg-pale-teal px-3 py-1 text-xs font-bold tracking-wider text-deep-teal uppercase ring-1 ring-teal/20">
+      <span className="inline-flex items-center rounded-full bg-pale-teal px-3 py-1 text-[0.72rem] font-bold tracking-wider text-deep-teal uppercase ring-1 ring-teal/20">
         {person.roleEn}
       </span>
 
@@ -51,7 +51,7 @@ export function OfficeBearerCard({ person, priority = false }: { person: OfficeB
           <a
             href={tel}
             lang="gu"
-            className="inline-flex items-center gap-1.5 rounded-full bg-deep-teal/10 px-3 py-1.5 font-bold text-deep-teal transition-all duration-200 hover:bg-deep-teal hover:text-white"
+            className="inline-flex items-center gap-1.5 rounded-full bg-deep-teal/10 px-3.5 py-1.5 font-bold text-deep-teal transition-all duration-200 hover:bg-deep-teal hover:text-white"
           >
             <Phone className="size-3.5" aria-hidden="true" />
             <span>{person.phone}</span>

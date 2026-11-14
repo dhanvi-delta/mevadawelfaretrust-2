@@ -9,7 +9,7 @@ const featured = ["scheme-rules", "notice-june-2022", "claim-form", "crm-portal"
 export function ResourcesPreview() {
   const items = featured.map((id) => documents.find((d) => d.id === id)!).filter(Boolean);
   return (
-    <section className="relative overflow-hidden py-20 sm:py-24" aria-labelledby="resources-heading">
+    <section className="relative overflow-hidden bg-white py-20 sm:py-24 border-b border-line/60" aria-labelledby="resources-heading">
       <div className="container-page relative">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <SectionHeading

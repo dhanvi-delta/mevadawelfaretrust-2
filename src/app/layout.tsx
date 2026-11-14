@@ -56,7 +56,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="font-sans">
+    <html lang="en" className="font-sans" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -66,7 +66,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
         />
       </head>
-      <body className="flex min-h-dvh flex-col bg-ivory text-ink antialiased selection:bg-warm-gold/30 selection:text-navy">
+      <body
+        suppressHydrationWarning
+        className="flex min-h-dvh flex-col bg-ivory text-ink antialiased selection:bg-warm-gold/30 selection:text-navy"
+      >
         <JsonLd data={organizationJsonLd()} />
         <TopBar />
         <Header />

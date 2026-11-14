@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { ArrowUpRight, Search, User } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { site } from "@/data/content";
 import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
@@ -32,7 +31,7 @@ export function Header() {
         "sticky top-0 z-50 transition-all duration-300",
         scrolled
           ? "border-b border-line/90 bg-white/95 shadow-[0_4px_24px_rgba(7,54,74,0.06)] backdrop-blur-md"
-          : "border-b border-transparent bg-white/80 backdrop-blur-sm",
+          : "border-b border-transparent bg-white/90 backdrop-blur-sm",
       )}
     >
       {/* Subtle scroll progress bar */}
@@ -49,40 +48,18 @@ export function Header() {
         Skip to content
       </a>
 
-      <div className="container-page flex h-[4.25rem] items-center justify-between gap-3">
+      <div className="container-page flex h-[4.85rem] items-center justify-between gap-4">
         <Logo />
 
-        <div className="flex items-center gap-2 lg:gap-3">
+        <div className="flex items-center gap-3">
           <Navigation />
 
-          {/* Quick search button from screenshot reference */}
-          <Link
-            href="/notices"
-            aria-label="Search notices and schemes"
-            title="Search notices"
-            className="hidden size-9 items-center justify-center rounded-full bg-mist text-deep-teal transition-colors duration-150 hover:bg-pale-teal lg:inline-flex"
-          >
-            <Search className="size-4" aria-hidden="true" />
-          </Link>
-
-          {/* Dark navy pill button with user icon (existing CRM portal link) */}
+          {/* Existing "Pay Online" link styled as the gold pill button */}
           <a
             href={site.crmUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden h-9 items-center gap-1.5 rounded-full bg-navy px-3.5 text-xs font-semibold text-white shadow-sm transition hover:bg-deep-teal lg:inline-flex"
-          >
-            <User className="size-3.5 text-warm-gold" aria-hidden="true" />
-            <span>Member Portal</span>
-            <span className="sr-only"> (opens in a new tab)</span>
-          </a>
-
-          {/* Gold pill button (existing "Pay Online" link) */}
-          <a
-            href={site.crmUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-shimmer hidden h-9 items-center gap-1 rounded-full bg-gold px-4 text-xs font-bold text-navy shadow-[0_4px_16px_rgba(213,163,79,0.4)] transition hover:-translate-y-0.5 hover:bg-warm-gold sm:inline-flex"
+            className="btn-shimmer hidden h-10 items-center gap-1.5 rounded-full bg-gold px-5 text-xs font-bold text-navy shadow-[0_4px_16px_rgba(213,163,79,0.4)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-warm-gold sm:inline-flex"
           >
             <span>Pay Online</span>
             <ArrowUpRight className="size-3.5" aria-hidden="true" />

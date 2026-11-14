@@ -6,7 +6,7 @@ import { committeeTitleGu, officeBearers } from "@/data/trustees";
 
 export function TrusteesPreview() {
   return (
-    <section className="relative overflow-hidden py-20 sm:py-24" aria-labelledby="trustees-heading">
+    <section className="relative overflow-hidden bg-white py-20 sm:py-24 border-b border-line/60" aria-labelledby="trustees-heading">
       <div className="container-page relative">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <SectionHeading

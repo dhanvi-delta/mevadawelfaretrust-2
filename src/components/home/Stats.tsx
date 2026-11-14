@@ -1,4 +1,4 @@
-import { ArrowRight, Building, Calendar, Users, Award } from "lucide-react";
+import { Award, Building, Calendar, Users } from "lucide-react";
 import { Counter } from "@/components/shared/Counter";
 import { verifiedStats } from "@/data/content";
 
@@ -6,72 +6,45 @@ const statIcons = [Calendar, Users, Building, Award];
 
 export function Stats() {
   return (
-    <section aria-labelledby="stats-heading" className="py-14 sm:py-20">
+    <section aria-labelledby="stats-heading" className="relative overflow-hidden bg-pale-teal/25 py-16 sm:py-20 border-b border-line/60">
       <div className="container-page">
-        {/* Dark teal capsule banner: rounded pill, navy to teal gradient, subtle pattern and glow */}
-        <div className="relative overflow-hidden rounded-[2.25rem] bg-gradient-to-r from-navy via-deep-teal to-[#07596a] p-8 text-white shadow-lift sm:p-10 lg:p-12">
-          {/* Subtle jali pattern & background glow */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 opacity-5 [background-image:radial-gradient(white_1px,transparent_1px)] [background-size:20px_20px]"
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -top-24 left-1/4 size-72 rounded-full bg-gold/15 blur-3xl"
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -bottom-24 right-1/4 size-72 rounded-full bg-bright-teal/15 blur-3xl"
-          />
-
-          <div className="relative grid items-center gap-8 lg:grid-cols-[1.1fr_auto_2.2fr_auto] lg:gap-8">
-            {/* Left: Playfair italic gold heading */}
-            <div>
-              <p className="text-xs font-bold tracking-[0.16em] text-pale-teal uppercase">
-                Trust at a glance
-              </p>
-              <h2
-                id="stats-heading"
-                className="mt-2 font-playfair text-2xl font-bold italic tracking-normal text-warm-gold sm:text-3xl lg:text-[2.1rem]"
-              >
-                The Trust at a glance
-              </h2>
-              <p className="mt-2 text-xs text-pale-teal/80">Figures as published by the Trust</p>
-            </div>
-
-            {/* Vertical divider */}
-            <div className="hidden h-24 w-px bg-white/15 lg:block" aria-hidden="true" />
-
-            {/* Middle: Icon stats with Counter */}
-            <dl className="grid grid-cols-2 gap-6 sm:grid-cols-4 lg:gap-4">
-              {verifiedStats.map((s, idx) => {
-                const Icon = statIcons[idx % statIcons.length];
-                return (
-                  <div key={s.label} className="flex flex-col">
-                    <span className="mb-2 grid size-8 place-items-center rounded-lg bg-white/10 text-warm-gold">
-                      <Icon className="size-4" aria-hidden="true" />
-                    </span>
-                    <dd className="font-display text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
-                      <Counter value={s.value} format={s.format} />
-                    </dd>
-                    <dt className="mt-1 text-xs font-semibold text-pale-teal">{s.label}</dt>
-                    <dd className="mt-0.5 text-[0.72rem] text-pale-teal/65 leading-tight">{s.detail}</dd>
-                  </div>
-                );
-              })}
-            </dl>
-
-            {/* Right: Gold pill CTA */}
-            <div className="pt-4 lg:pt-0">
-              <a
-                href="/welfare-schemes"
-                className="btn-shimmer inline-flex items-center gap-2 rounded-full bg-gold px-5 py-3 text-xs font-bold text-navy shadow-md transition hover:-translate-y-0.5 hover:bg-warm-gold whitespace-nowrap"
-              >
-                <span>View Scheme</span>
-                <ArrowRight className="size-3.5" aria-hidden="true" />
-              </a>
-            </div>
+        <div className="mb-8 flex flex-col justify-between gap-2 sm:flex-row sm:items-end">
+          <div>
+            <p className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.16em] text-gold uppercase mb-1">
+              <span className="h-0.5 w-4 rounded-full bg-gold" aria-hidden="true" />
+              <span>Trust at a glance</span>
+            </p>
+            <h2 id="stats-heading" className="text-2xl font-bold text-navy sm:text-3xl">
+              The Trust at a glance
+            </h2>
           </div>
+          <p className="text-xs font-semibold text-muted">Figures as published by the Trust</p>
+        </div>
+
+        {/* White floating-style stat card row: 4 columns, vertical dividers, soft shadow */}
+        <div className="rounded-[22px] border border-line bg-white p-6 shadow-[0_14px_40px_rgba(7,54,74,0.08)] sm:p-8">
+          <dl className="grid grid-cols-1 divide-y divide-line sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x lg:divide-line">
+            {verifiedStats.map((s, idx) => {
+              const Icon = statIcons[idx % statIcons.length];
+              return (
+                <div
+                  key={s.label}
+                  className="flex flex-col justify-between pt-6 first:pt-0 sm:pt-0 lg:px-6 lg:first:pl-0"
+                >
+                  <div className="flex items-center justify-between">
+                    <dt className="text-xs font-bold tracking-wider text-teal uppercase">{s.label}</dt>
+                    <span className="grid size-9 place-items-center rounded-full bg-pale-teal text-deep-teal">
+                      <Icon className="size-4.5 text-teal" aria-hidden="true" />
+                    </span>
+                  </div>
+                  <dd className="mt-4 font-display text-4xl font-extrabold tracking-tight text-navy sm:text-5xl">
+                    <Counter value={s.value} format={s.format} />
+                  </dd>
+                  <dd className="mt-2 text-xs leading-relaxed text-muted">{s.detail}</dd>
+                </div>
+              );
+            })}
+          </dl>
         </div>
       </div>
     </section>
