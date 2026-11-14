@@ -54,16 +54,18 @@ export function CommitteeDirectory({ groups }: { groups: CommitteeGroup[] }) {
 
         {filtered.map((g) => (
           <section key={g.id} aria-labelledby={`grp-${g.id}`}>
-            <div className="mb-4 flex items-baseline justify-between gap-4">
-              <h3 id={`grp-${g.id}`} className="text-xl font-bold">
+            <div className="mb-4 flex items-baseline justify-between gap-4 border-b border-line pb-2.5">
+              <h3 id={`grp-${g.id}`} className="text-xl font-bold text-navy">
                 <span lang="gu">{g.title}</span>
-                <span className="ml-2 text-sm font-medium text-muted">{g.titleEn}</span>
+                <span className="ml-2.5 text-xs font-bold text-teal tracking-wide uppercase">{g.titleEn}</span>
               </h3>
-              <span className="text-sm text-muted">{g.members.length}</span>
+              <span className="rounded-full bg-pale-teal px-2.5 py-0.5 text-xs font-bold text-deep-teal">
+                {g.members.length} members
+              </span>
             </div>
 
             {/* Desktop / tablet table */}
-            <div className="hidden overflow-hidden rounded-2xl border border-line bg-white sm:block">
+            <div className="hidden overflow-hidden rounded-2xl border border-line bg-white shadow-soft sm:block">
               <table className="table-clean">
                 <thead>
                   <tr>
@@ -78,13 +80,17 @@ export function CommitteeDirectory({ groups }: { groups: CommitteeGroup[] }) {
                     const tel = telHref(m.phone);
                     return (
                       <tr key={`${g.id}-${m.serial}`}>
-                        <td className="text-muted">{m.serial}</td>
-                        <td className="font-semibold">{m.name}</td>
-                        <td>{m.village}</td>
+                        <td className="text-muted font-mono text-xs">{m.serial}</td>
+                        <td className="font-bold text-navy">{m.name}</td>
+                        <td className="text-muted">{m.village}</td>
                         <td>
                           {tel ? (
-                            <a href={tel} className="font-medium text-brand-700 hover:underline">
-                              {m.phone}
+                            <a
+                              href={tel}
+                              className="inline-flex items-center gap-1.5 font-bold text-deep-teal hover:text-teal hover:underline"
+                            >
+                              <Phone className="size-3.5 text-teal" aria-hidden="true" />
+                              <span>{m.phone}</span>
                             </a>
                           ) : (
                             <span className="text-muted">{m.phone}</span>
@@ -102,17 +108,24 @@ export function CommitteeDirectory({ groups }: { groups: CommitteeGroup[] }) {
               {g.members.map((m) => {
                 const tel = telHref(m.phone);
                 return (
-                  <li key={`${g.id}-${m.serial}-m`} className="card flex items-start gap-4 p-4">
-                    <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-mint text-sm font-bold text-brand-700">{m.serial}</span>
-                    <div className="min-w-0">
-                      <p className="font-semibold">{m.name}</p>
-                      <p className="mt-0.5 inline-flex items-center gap-1 text-sm text-muted">
-                        <MapPin className="size-3.5" aria-hidden="true" /> {m.village}
+                  <li key={`${g.id}-${m.serial}-m`} className="card flex items-start gap-4 p-4 bg-white border border-line shadow-soft">
+                    <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-pale-teal text-xs font-bold text-deep-teal">
+                      {m.serial}
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <p className="font-bold text-navy">{m.name}</p>
+                      <p className="mt-1 inline-flex items-center gap-1 text-xs text-muted">
+                        <MapPin className="size-3.5 text-teal" aria-hidden="true" /> {m.village}
                       </p>
                       {tel && (
-                        <a href={tel} className="mt-1 flex items-center gap-1 text-sm font-medium text-brand-700">
-                          <Phone className="size-3.5" aria-hidden="true" /> {m.phone}
-                        </a>
+                        <div className="mt-2">
+                          <a
+                            href={tel}
+                            className="inline-flex items-center gap-1.5 rounded-full bg-deep-teal/10 px-3 py-1 text-xs font-bold text-deep-teal hover:bg-deep-teal hover:text-white transition-colors"
+                          >
+                            <Phone className="size-3.5" aria-hidden="true" /> {m.phone}
+                          </a>
+                        </div>
                       )}
                     </div>
                   </li>

@@ -33,7 +33,7 @@ function Linkify({ text }: { text: string }) {
     <>
       {parts.map((part, i) =>
         /^https?:\/\//.test(part) ? (
-          <a key={i} href={part} target="_blank" rel="noopener noreferrer" className="font-semibold break-all text-brand-700 underline">
+          <a key={i} href={part} target="_blank" rel="noopener noreferrer" className="font-semibold break-all text-deep-teal underline">
             {part}
           </a>
         ) : (
@@ -64,9 +64,9 @@ export default async function NoticePage({ params }: PageProps<"/notices/[slug]"
         <PrintButton label="Print / Save notice" />
       </PageHero>
 
-      <section className="py-12 sm:py-16">
+      <section className="relative overflow-hidden py-12 sm:py-16">
         <div className="container-page max-w-4xl">
-          <article className="card overflow-hidden">
+          <article className="card overflow-hidden bg-white border border-line shadow-soft">
             <div className="border-b border-line bg-white p-4 sm:p-6">
               <Image
                 src="/images/letterhead.png"
@@ -78,23 +78,23 @@ export default async function NoticePage({ params }: PageProps<"/notices/[slug]"
               />
             </div>
             <div className="p-6 sm:p-10">
-              <div className="flex flex-wrap gap-3 text-sm">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-mint px-3 py-1 font-semibold text-brand-700">
-                  <CalendarDays className="size-4" aria-hidden="true" /> {notice.dateLabel}
+              <div className="flex flex-wrap gap-3 text-xs">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-pale-teal px-3 py-1 font-bold text-deep-teal ring-1 ring-teal/20">
+                  <CalendarDays className="size-3.5 text-teal" aria-hidden="true" /> {notice.dateLabel}
                 </span>
                 {notice.deceasedCount !== undefined && (
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-saffron-50 px-3 py-1 font-semibold text-saffron-700">
-                    <Users className="size-4" aria-hidden="true" /> {notice.deceasedCount} members deceased · {notice.period}
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-pale-cream px-3 py-1 font-bold text-saffron-700 ring-1 ring-gold/30">
+                    <Users className="size-3.5 text-gold" aria-hidden="true" /> {notice.deceasedCount} members deceased · {notice.period}
                   </span>
                 )}
               </div>
 
-              <h2 lang={isGu ? "gu" : undefined} className="mt-6 text-2xl font-bold text-brand-800 sm:text-3xl">
+              <h2 lang={isGu ? "gu" : undefined} className="mt-6 text-2xl font-extrabold text-navy sm:text-3xl leading-snug">
                 {notice.title}
               </h2>
 
-              <div lang="gu" className="prose-gu mt-6 text-[1.05rem]">
-                {notice.salutation && <p className="font-semibold">{notice.salutation}</p>}
+              <div lang="gu" className="prose-gu mt-6 text-xs leading-relaxed text-navy space-y-3">
+                {notice.salutation && <p className="font-bold text-navy text-sm">{notice.salutation}</p>}
                 {notice.body.map((p, i) => (
                   <p key={i}>
                     <Linkify text={p} />
@@ -109,11 +109,11 @@ export default async function NoticePage({ params }: PageProps<"/notices/[slug]"
               )}
 
               {notice.signatories && (
-                <div lang="gu" className="mt-10 grid gap-6 border-t border-line pt-6 sm:grid-cols-2">
+                <div lang="gu" className="mt-10 grid gap-6 border-t border-line/80 pt-6 sm:grid-cols-2">
                   {notice.signatories.map((s) => (
                     <p key={s.name}>
-                      <span className="block font-semibold">{s.name}</span>
-                      <span className="text-muted">{s.role}</span>
+                      <span className="block font-bold text-navy text-sm">{s.name}</span>
+                      <span className="text-xs text-muted">{s.role}</span>
                     </p>
                   ))}
                 </div>
@@ -124,7 +124,7 @@ export default async function NoticePage({ params }: PageProps<"/notices/[slug]"
                   href={notice.link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="no-print mt-8 inline-flex h-12 items-center gap-2 rounded-full bg-saffron-500 px-6 font-bold text-brand-900 transition hover:bg-saffron-400"
+                  className="btn-shimmer no-print mt-8 inline-flex h-11 items-center gap-2 rounded-full bg-gold px-6 text-xs font-bold text-navy shadow-md transition hover:bg-warm-gold hover:-translate-y-0.5"
                 >
                   <span lang={/[઀-૿]/.test(notice.link.label) ? "gu" : undefined}>{notice.link.label}</span>
                   <ArrowUpRight className="size-4" aria-hidden="true" />
@@ -134,12 +134,12 @@ export default async function NoticePage({ params }: PageProps<"/notices/[slug]"
             </div>
           </article>
 
-          <div className="no-print mt-8 flex flex-wrap items-center justify-between gap-4">
-            <Link href="/notices" className="inline-flex items-center gap-2 font-semibold text-brand-700 hover:underline">
+          <div className="no-print mt-8 flex flex-wrap items-center justify-between gap-4 text-xs font-bold">
+            <Link href="/notices" className="inline-flex items-center gap-2 text-deep-teal hover:text-navy hover:underline">
               <ArrowLeft className="size-4" aria-hidden="true" /> All notices
             </Link>
             {notice.deceasedCount !== undefined && (
-              <Link href="/death-members" className="inline-flex items-center gap-2 font-semibold text-brand-700 hover:underline">
+              <Link href="/death-members" className="inline-flex items-center gap-2 text-deep-teal hover:text-navy hover:underline">
                 Look up your amount by member number
               </Link>
             )}

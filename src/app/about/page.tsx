@@ -34,11 +34,11 @@ export default function AboutPage() {
       />
 
       {/* Identity + letterhead */}
-      <section className="py-16 sm:py-20">
+      <section className="relative overflow-hidden py-16 sm:py-20">
         <div className="container-page grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-center">
           <Reveal>
             <SectionHeading eyebrow="Who we are" title="Trust introduction" titleGu="હેતુ" />
-            <p lang="gu" className="mt-6 text-lg text-ink">
+            <p lang="gu" className="mt-6 text-lg leading-relaxed text-navy font-medium">
               {purposeGu}
             </p>
             <dl className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -48,13 +48,16 @@ export default function AboutPage() {
                 { icon: Building2, label: "Office", value: "ગુરૂનાનક ચોક, પાલનપુર", gu: true },
                 { icon: Users, label: "Community", value: "ઘાનઘાર મેવાડા સુથાર સમાજ", gu: true },
               ].map((item) => (
-                <div key={item.label} className="flex gap-3 rounded-2xl bg-white p-4 shadow-soft ring-1 ring-line/70">
-                  <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-mint text-brand-700">
+                <div
+                  key={item.label}
+                  className="card flex gap-3.5 rounded-2xl bg-gradient-to-br from-white to-pale-teal/15 p-4.5 shadow-soft border border-line"
+                >
+                  <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-pale-teal text-deep-teal ring-1 ring-teal/20">
                     <item.icon className="size-5" aria-hidden="true" />
                   </span>
                   <div>
-                    <dt className="text-xs font-semibold tracking-wide text-muted uppercase">{item.label}</dt>
-                    <dd lang={item.gu ? "gu" : undefined} className="font-semibold text-ink">
+                    <dt className="text-[0.72rem] font-bold tracking-wider text-muted uppercase">{item.label}</dt>
+                    <dd lang={item.gu ? "gu" : undefined} className="font-bold text-navy text-sm mt-0.5">
                       {item.value}
                     </dd>
                   </div>
@@ -63,17 +66,17 @@ export default function AboutPage() {
             </dl>
           </Reveal>
           <Reveal delay={120} className="space-y-5">
-            <div className="overflow-hidden rounded-[2rem] shadow-lift">
+            <div className="relative overflow-hidden rounded-[2.5rem] border-4 border-white bg-pale-teal shadow-lift">
               <Image
                 src="/gallery/photo-001.jpg"
                 alt="A speaker at a Trust General Assembly, standing at a podium with the Trust's hands logo"
                 width={700}
                 height={500}
                 sizes="(min-width: 1024px) 45vw, 92vw"
-                className="h-auto w-full"
+                className="h-auto w-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
-            <figure className="rounded-2xl bg-white p-3 shadow-soft ring-1 ring-line">
+            <figure className="card rounded-2xl bg-white p-4 shadow-soft border border-line">
               <Image
                 src="/images/letterhead.png"
                 alt={`Official letterhead: ${site.nameGu}, ${contact.letterheadAddress}, ${site.registration}`}
@@ -82,25 +85,40 @@ export default function AboutPage() {
                 sizes="(min-width: 1024px) 40vw, 90vw"
                 className="h-auto w-full"
               />
-              <figcaption className="mt-2 px-1 text-xs text-muted">Official letterhead of the Trust</figcaption>
+              <figcaption className="mt-2.5 px-1 text-xs text-muted flex items-center justify-between">
+                <span>Official letterhead of the Trust</span>
+                <span className="text-[0.7rem] font-bold text-teal uppercase tracking-wider">Reg. F/1779</span>
+              </figcaption>
             </figure>
           </Reveal>
         </div>
       </section>
 
       {/* How it works */}
-      <section className="bg-mint/60 py-16 sm:py-20" aria-labelledby="how-heading">
-        <div className="container-page">
-          <SectionHeading id="how-heading" align="center" eyebrow="How the scheme works" title="From joining to supporting a family" />
-          <ol className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="relative overflow-hidden bg-mist/60 py-16 sm:py-20" aria-labelledby="how-heading">
+        <div className="container-page relative">
+          <SectionHeading
+            id="how-heading"
+            align="center"
+            eyebrow="How the scheme works"
+            title="From joining to supporting a family"
+          />
+          <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((s, i) => (
-              <Reveal as="li" key={s.title} delay={i * 80} className="card relative p-6">
-                <span className="absolute top-5 right-5 font-display text-4xl font-extrabold text-brand-100">0{i + 1}</span>
-                <span className="grid size-12 place-items-center rounded-2xl bg-brand-700 text-white">
+              <Reveal
+                as="li"
+                key={s.title}
+                delay={i * 80}
+                className="card relative flex flex-col p-6.5 bg-gradient-to-br from-white to-pale-teal/20 border border-line shadow-soft hover:-translate-y-2 hover:shadow-lift transition-all duration-300"
+              >
+                <span className="absolute top-4 right-5 font-display text-4xl font-extrabold text-teal/15">
+                  0{i + 1}
+                </span>
+                <span className="grid size-12 place-items-center rounded-2xl bg-gradient-to-br from-teal to-deep-teal text-white shadow-soft">
                   <s.icon className="size-6" aria-hidden="true" />
                 </span>
-                <h3 className="mt-5 text-lg font-bold">{s.title}</h3>
-                <p className="mt-2 text-[0.95rem] text-muted">{s.text}</p>
+                <h3 className="mt-5 font-display text-lg font-bold text-navy">{s.title}</h3>
+                <p className="mt-2 text-xs leading-relaxed text-muted flex-1">{s.text}</p>
               </Reveal>
             ))}
           </ol>
@@ -108,14 +126,14 @@ export default function AboutPage() {
       </section>
 
       {/* Fees + application */}
-      <section className="py-16 sm:py-20">
+      <section className="relative overflow-hidden py-16 sm:py-20">
         <div className="container-page grid gap-12 lg:grid-cols-2">
           <Reveal>
             <SectionHeading eyebrow="Membership" title="Entry fee by age" titleGu="સભાસદની દાખલ ફી" />
-            <p lang="gu" className="mt-4 text-muted">
+            <p lang="gu" className="mt-4 text-xs text-muted leading-relaxed">
               {feeIntroGu}
             </p>
-            <div className="mt-6 overflow-x-auto rounded-2xl border border-line bg-white">
+            <div className="mt-6 overflow-x-auto rounded-2xl border border-line bg-white shadow-soft">
               <table className="table-clean">
                 <thead>
                   <tr>
@@ -127,10 +145,10 @@ export default function AboutPage() {
                   {membershipFees.map((f) => (
                     <tr key={f.age}>
                       <td>
-                        <span lang="gu" className="block font-medium">{f.age}</span>
+                        <span lang="gu" className="block font-bold text-navy">{f.age}</span>
                         <span className="text-xs text-muted">{f.ageEn}</span>
                       </td>
-                      <td lang="gu" className="text-right font-bold text-brand-700">
+                      <td lang="gu" className="text-right font-extrabold text-deep-teal">
                         {f.fee}
                       </td>
                     </tr>
@@ -141,13 +159,17 @@ export default function AboutPage() {
           </Reveal>
           <Reveal delay={100}>
             <SectionHeading eyebrow="Application" title="Joining the scheme" titleGu="અરજી ૫ત્રક" />
-            <div lang="gu" className="prose-gu mt-6 space-y-4 text-ink">
+            <div lang="gu" className="prose-gu mt-6 space-y-4 text-xs leading-relaxed text-navy">
               {applicationNotesGu.map((p) => (
-                <p key={p.slice(0, 24)}>{p}</p>
+                <p key={p.slice(0, 24)} className="rounded-xl bg-pale-cream/40 p-3.5 border border-gold/20">
+                  {p}
+                </p>
               ))}
             </div>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="/welfare-schemes">Read all scheme rules</ButtonLink>
+            <div className="mt-8 flex flex-wrap gap-3.5">
+              <ButtonLink href="/welfare-schemes" variant="primary" arrow>
+                Read all scheme rules
+              </ButtonLink>
               <ButtonLink href="/contact" variant="secondary">
                 Contact the office
               </ButtonLink>

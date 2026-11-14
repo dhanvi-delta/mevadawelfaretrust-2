@@ -1,59 +1,69 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------
-   Design tokens — Mevada Welfare Trust
-   Primary: deep teal (trust, stability). Accent: saffron sampled
-   from the trust's own hands logo (#F09030). Light theme only.
+   Design Tokens — Shree Mevada Suthar Samaj Welfare Trust
+   Theme: "Modern Samaj - Heritage Meets Clarity"
+   Light theme only. Ivory background, Deep Teal & Navy for trust,
+   Heritage Gold accent.
 ------------------------------------------------------------------- */
 @theme {
-  --color-brand-50: #eef7f5;
-  --color-brand-100: #d5ebe6;
+  --color-navy: #07364a;
+  --color-deep-teal: #07596a;
+  --color-teal: #078c91;
+  --color-bright-teal: #18b7b0;
+  --color-gold: #d5a34f;
+  --color-warm-gold: #e9bc70;
+  --color-ivory: #fffdf8;
+  --color-mist: #f4f8f7;
+  --color-white: #ffffff;
+  --color-ink: #102f43;
+  --color-muted: #637783;
+
+  --color-pale-blue: #e8f2f9;
+  --color-pale-teal: #e5f5f4;
+  --color-pale-cream: #fbf0dc;
+  --color-line: #e2eceb;
+
+  /* Backwards-compatible aliases for existing template components */
+  --color-brand-50: #f4f8f7;
+  --color-brand-100: #e5f5f4;
   --color-brand-200: #a9d6cd;
   --color-brand-300: #74b9ad;
-  --color-brand-400: #3f968a;
-  --color-brand-500: #23796f;
-  --color-brand-600: #186661;
-  --color-brand-700: #145b59;
-  --color-brand-800: #10474a;
-  --color-brand-900: #0c3438;
+  --color-brand-400: #18b7b0;
+  --color-brand-500: #078c91;
+  --color-brand-600: #078c91;
+  --color-brand-700: #07596a;
+  --color-brand-800: #07596a;
+  --color-brand-900: #07364a;
 
-  --color-emerald: #239b79;
-  --color-emerald-dark: #1b7d61;
+  --color-emerald: #078c91;
+  --color-emerald-dark: #07596a;
 
-  --color-saffron-50: #fff5ea;
+  --color-saffron-50: #fbf0dc;
   --color-saffron-100: #fee6cb;
-  --color-saffron-400: #f4a24e;
-  --color-saffron-500: #f09030;
-  --color-saffron-600: #d97618;
-  --color-saffron-700: #b25d10;
+  --color-saffron-400: #e9bc70;
+  --color-saffron-500: #d5a34f;
+  --color-saffron-600: #b88530;
+  --color-saffron-700: #8c631b;
 
-  --color-gold: #d5a64a;
+  --color-cream: #fffdf8;
+  --color-mint: #e5f5f4;
+  --color-sand: #fbf0dc;
 
-  --color-cream: #fafaf7;
-  --color-mint: #eaf5f0;
-  --color-sand: #f6f1e8;
-  --color-ink: #202c2b;
-  --color-muted: #5f6d6a;
-  --color-line: #e4e8e3;
+  --font-sans: "Plus Jakarta Sans", "Noto Sans Gujarati", "Shruti", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Noto Sans Gujarati", -apple-system, sans-serif;
+  --font-gujarati: "Noto Sans Gujarati", "Shruti", "Gujarati Sangam MN", sans-serif;
+  --font-playfair: "Playfair Display", Georgia, "Times New Roman", serif;
 
-  --font-sans: var(--font-jakarta), var(--font-gujarati), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-jakarta), var(--font-gujarati), ui-sans-serif, system-ui, sans-serif;
-  --font-gujarati: var(--font-gujarati), var(--font-jakarta), sans-serif;
+  --shadow-soft: 0 4px 20px -2px rgba(7, 54, 74, 0.06), 0 2px 6px -1px rgba(7, 54, 74, 0.04);
+  --shadow-lift: 0 16px 36px -8px rgba(7, 54, 74, 0.14), 0 4px 12px -2px rgba(7, 54, 74, 0.06);
+  --shadow-card: 0 8px 30px rgba(7, 54, 74, 0.05);
 
-  --shadow-soft: 0 1px 2px rgb(16 71 74 / 0.04), 0 8px 24px -12px rgb(16 71 74 / 0.12);
-  --shadow-lift: 0 2px 4px rgb(16 71 74 / 0.05), 0 22px 44px -20px rgb(16 71 74 / 0.28);
+  --radius-card: 1.35rem;
 
-  --radius-card: 1.25rem;
-
-  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-  --animate-fade-in: fade-in 0.25s ease-out both;
-  --animate-scale-in: scale-in 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
-  --animate-slide-in: slide-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
-
-  @keyframes slide-in {
-    from { transform: translateX(100%); }
-    to { transform: none; }
-  }
+  --animate-fade-up: fade-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-in: fade-in 0.3s ease-out both;
+  --animate-shimmer: shimmer 2.5s infinite;
 
   @keyframes fade-up {
     from { opacity: 0; transform: translateY(18px); }
@@ -63,9 +73,8 @@
     from { opacity: 0; }
     to { opacity: 1; }
   }
-  @keyframes scale-in {
-    from { opacity: 0; transform: scale(0.97); }
-    to { opacity: 1; transform: scale(1); }
+  @keyframes shimmer {
+    100% { transform: translateX(100%); }
   }
 }
 
@@ -76,8 +85,13 @@
     color-scheme: light;
   }
 
+  /* Senior-friendly dynamic font scale toggled from TopBar */
+  html.text-size-sm { font-size: 15px; }
+  html.text-size-md { font-size: 16px; }
+  html.text-size-lg { font-size: 17.5px; }
+
   body {
-    background-color: var(--color-cream);
+    background-color: var(--color-ivory);
     color: var(--color-ink);
     font-family: var(--font-sans);
     line-height: 1.65;
@@ -88,13 +102,13 @@
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    color: var(--color-ink);
-    letter-spacing: -0.015em;
-    line-height: 1.2;
+    color: var(--color-navy);
+    letter-spacing: -0.02em;
+    line-height: 1.25;
     text-wrap: balance;
   }
 
-  /* Gujarati needs a little more vertical room for matras */
+  /* Gujarati font line-height rule (1.8+ for matras) */
   :lang(gu) {
     font-family: var(--font-gujarati);
     line-height: 1.85;
@@ -105,18 +119,18 @@
   }
 
   ::selection {
-    background: var(--color-saffron-100);
-    color: var(--color-brand-900);
+    background: #fee6cb;
+    color: #07364a;
   }
 
   :focus-visible {
-    outline: 3px solid var(--color-saffron-500);
+    outline: 2px solid var(--color-gold);
     outline-offset: 3px;
     border-radius: 6px;
   }
 
   [id] {
-    scroll-margin-top: 7rem;
+    scroll-margin-top: 6.5rem;
   }
 }
 
@@ -134,29 +148,73 @@
     .container-page { padding-inline: 2rem; }
   }
 
+  /* Reference Card Style: White to pale gradient, 18-20px radius, soft shadow */
   .card {
-    background: #fff;
-    border-radius: var(--radius-card);
+    background: #ffffff;
+    border-radius: 1.25rem;
     box-shadow: var(--shadow-soft);
-    border: 1px solid rgb(228 232 227 / 0.7);
+    border: 1px solid var(--color-line);
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lift);
+    border-color: #a9d6cd;
   }
 
+  /* Eyebrow with gold dash */
   .eyebrow {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--color-saffron-700);
+    color: var(--color-gold);
   }
   .eyebrow::before {
     content: "";
-    width: 1.5rem;
+    width: 1.25rem;
     height: 2px;
+    border-radius: 9999px;
+    background: var(--color-gold);
+  }
+
+  /* Centered heading flourish: -- Title -- with thin gold lines */
+  .flourish-heading {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .flourish-heading::before,
+  .flourish-heading::after {
+    content: "";
+    width: 2rem;
+    height: 1.5px;
+    background: var(--color-gold);
     border-radius: 2px;
-    background: var(--color-saffron-500);
+    flex-shrink: 0;
+  }
+
+  /* Arch shape utility */
+  .arch-top {
+    border-radius: 120px 120px 24px 24px;
+  }
+  .arch-pill {
+    border-radius: 9999px 9999px 24px 24px;
+  }
+
+  /* Subtle jali geometric lattice pattern */
+  .bg-jali {
+    background-image: url("data:image/svg+xml,%3Csvg width='36' height='36' viewBox='0 0 36 36' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 0 L36 18 L18 36 L0 18 Z' fill='none' stroke='%2307596a' stroke-width='0.75' stroke-opacity='0.08'/%3E%3Ccircle cx='18' cy='18' r='4' fill='none' stroke='%23d5a34f' stroke-width='0.75' stroke-opacity='0.12'/%3E%3C/svg%3E");
+    background-size: 36px 36px;
+  }
+
+  .bg-dots-pattern {
+    background-image: radial-gradient(#07596a 1.25px, transparent 1.25px);
+    background-size: 18px 18px;
+    opacity: 0.08;
   }
 
   .prose-gu p + p { margin-top: 0.85rem; }
@@ -169,28 +227,29 @@
   }
   .table-clean th {
     text-align: left;
-    font-weight: 600;
-    color: var(--color-brand-800);
-    background: var(--color-mint);
-    padding: 0.8rem 1rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    background: var(--color-pale-teal);
+    padding: 0.9rem 1.1rem;
     white-space: nowrap;
+    border-bottom: 2px solid var(--color-line);
   }
-  .table-clean th:first-child { border-top-left-radius: 0.75rem; }
-  .table-clean th:last-child { border-top-right-radius: 0.75rem; }
+  .table-clean th:first-child { border-top-left-radius: 0.85rem; }
+  .table-clean th:last-child { border-top-right-radius: 0.85rem; }
   .table-clean td {
-    padding: 0.8rem 1rem;
+    padding: 0.9rem 1.1rem;
     border-bottom: 1px solid var(--color-line);
     vertical-align: top;
   }
   .table-clean tbody tr:last-child td { border-bottom: 0; }
   .table-clean tbody tr { transition: background-color 0.15s; }
-  .table-clean tbody tr:hover { background: #fbfcfa; }
+  .table-clean tbody tr:hover { background: #f7faf9; }
 
   /* Scroll reveal */
   .reveal {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(18px);
+    transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
     transition-delay: var(--reveal-delay, 0ms);
   }
   .reveal[data-visible="true"] {
@@ -198,9 +257,26 @@
     transform: none;
   }
 
-  .bg-dots {
-    background-image: radial-gradient(rgb(20 91 89 / 0.12) 1px, transparent 1px);
-    background-size: 18px 18px;
+  /* Shimmer effect for gold CTA buttons */
+  .btn-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-shimmer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    animation: shimmer 3s infinite;
   }
 }
 
@@ -212,6 +288,7 @@
     transition-duration: 0.01ms !important;
   }
   .reveal { opacity: 1; transform: none; }
+  .btn-shimmer::after { display: none; }
 }
 
 @media print {

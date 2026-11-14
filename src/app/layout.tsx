@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Sans_Gujarati, Plus_Jakarta_Sans } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { TopBar } from "@/components/layout/TopBar";
@@ -7,19 +6,6 @@ import { JsonLd } from "@/components/shared/JsonLd";
 import { site } from "@/data/content";
 import { organizationJsonLd } from "@/lib/seo";
 import "./globals.css";
-
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-jakarta",
-  display: "swap",
-});
-
-const gujarati = Noto_Sans_Gujarati({
-  subsets: ["gujarati"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-gujarati",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -62,7 +48,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#145b59",
+  themeColor: "#07596a",
   colorScheme: "light",
   width: "device-width",
   initialScale: 1,
@@ -70,8 +56,17 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${jakarta.variable} ${gujarati.variable}`}>
-      <body className="flex min-h-dvh flex-col">
+    <html lang="en" className="font-sans">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        />
+      </head>
+      <body className="flex min-h-dvh flex-col bg-ivory text-ink antialiased selection:bg-warm-gold/30 selection:text-navy">
         <JsonLd data={organizationJsonLd()} />
         <TopBar />
         <Header />

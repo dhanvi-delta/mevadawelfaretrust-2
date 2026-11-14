@@ -32,10 +32,10 @@ export default function TrusteesPage() {
         <PrintButton label="Print committee list" />
       </PageHero>
 
-      <section className="py-16 sm:py-20" aria-labelledby="bearers-heading">
+      <section className="relative overflow-hidden py-16 sm:py-20" aria-labelledby="bearers-heading">
         <div className="container-page">
           <SectionHeading id="bearers-heading" eyebrow="Office bearers" title="Leadership of the Trust" />
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {officeBearers.map((p, i) => (
               <Reveal key={p.slug} delay={(i % 3) * 80}>
                 <OfficeBearerCard person={p} priority={i < 3} />
@@ -45,7 +45,7 @@ export default function TrusteesPage() {
         </div>
       </section>
 
-      <section className="bg-mint/50 py-16 sm:py-20" aria-labelledby="committee-heading">
+      <section className="relative overflow-hidden bg-mist/60 py-16 sm:py-20" aria-labelledby="committee-heading">
         <div className="container-page">
           <SectionHeading
             id="committee-heading"

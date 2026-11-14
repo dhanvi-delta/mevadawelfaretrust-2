@@ -6,38 +6,55 @@ import { telHref } from "@/lib/utils";
 export function OfficeBearerCard({ person, priority = false }: { person: OfficeBearer; priority?: boolean }) {
   const tel = telHref(person.phone);
   return (
-    <article className="card group flex h-full flex-col items-center p-6 text-center transition duration-300 hover:-translate-y-1 hover:shadow-lift">
-      <div className="relative">
-        <div aria-hidden="true" className="absolute inset-0 translate-x-2 translate-y-2 rounded-[1.6rem] bg-saffron-100 transition group-hover:translate-x-3 group-hover:translate-y-3" />
-        <div className="relative h-40 w-30 overflow-hidden rounded-[1.6rem] bg-mint ring-4 ring-white">
+    <article className="card group relative flex h-full flex-col items-center p-6 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-lift bg-gradient-to-br from-white via-white to-pale-teal/20 border border-line">
+      {/* Photo frame with arch curve and decorative gold ring */}
+      <div className="relative mb-4">
+        <div
+          aria-hidden="true"
+          className="absolute -inset-1.5 rounded-t-[2.8rem] rounded-b-2xl bg-gradient-to-tr from-teal/20 via-gold/20 to-transparent transition-transform duration-300 group-hover:scale-105"
+        />
+        <div className="relative h-44 w-32 overflow-hidden rounded-t-[2.5rem] rounded-b-xl bg-pale-teal ring-4 ring-white shadow-soft">
           <Image
             src={person.photo}
             alt={`Portrait of ${person.name}, ${person.roleEn}`}
-            width={150}
-            height={200}
+            width={160}
+            height={210}
             priority={priority}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </div>
       </div>
-      <p className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1 text-xs font-bold tracking-wide text-brand-700 uppercase">
+
+      {/* Role badge */}
+      <span className="inline-flex items-center rounded-full bg-pale-teal px-3 py-1 text-xs font-bold tracking-wider text-deep-teal uppercase ring-1 ring-teal/20">
         {person.roleEn}
-      </p>
-      <h3 lang="gu" className="mt-3 text-lg !leading-snug font-bold">
+      </span>
+
+      {/* Person Name (Gujarati) */}
+      <h3 lang="gu" className="mt-3 text-lg font-bold text-navy !leading-snug">
         {person.name}
       </h3>
-      <p lang="gu" className="text-sm text-saffron-700">
+
+      {/* Person Role (Gujarati) */}
+      <p lang="gu" className="mt-1 text-xs font-semibold text-gold">
         {person.role}
       </p>
-      <div className="mt-4 flex w-full flex-col items-center gap-1.5 border-t border-line pt-4 text-sm text-muted">
-        <span lang="gu" className="inline-flex items-center gap-1.5">
-          <MapPin className="size-4 text-brand-500" aria-hidden="true" />
-          {person.village}
+
+      {/* Village and tap-to-call button */}
+      <div className="mt-4 flex w-full flex-col items-center gap-2 border-t border-line/80 pt-4 text-xs">
+        <span lang="gu" className="inline-flex items-center gap-1.5 text-muted">
+          <MapPin className="size-3.5 text-teal" aria-hidden="true" />
+          <span>{person.village}</span>
         </span>
+
         {tel && (
-          <a href={tel} lang="gu" className="inline-flex items-center gap-1.5 font-medium text-brand-700 hover:underline">
-            <Phone className="size-4" aria-hidden="true" />
-            {person.phone}
+          <a
+            href={tel}
+            lang="gu"
+            className="inline-flex items-center gap-1.5 rounded-full bg-deep-teal/10 px-3 py-1.5 font-bold text-deep-teal transition-all duration-200 hover:bg-deep-teal hover:text-white"
+          >
+            <Phone className="size-3.5" aria-hidden="true" />
+            <span>{person.phone}</span>
           </a>
         )}
       </div>

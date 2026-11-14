@@ -66,13 +66,19 @@ export function ContactForm({ email }: { email: string }) {
 
   if (status === "success") {
     return (
-      <div className="card animate-scale-in flex flex-col items-center p-10 text-center" role="status">
-        <span className="grid size-16 place-items-center rounded-full bg-mint text-emerald">
+      <div className="card animate-scale-in flex flex-col items-center p-10 text-center bg-white border border-line shadow-soft" role="status">
+        <span className="grid size-16 place-items-center rounded-full bg-pale-teal text-teal ring-4 ring-pale-teal/50">
           <CircleCheck className="size-9" aria-hidden="true" />
         </span>
-        <h3 className="mt-5 text-2xl font-bold">Thank you — message sent</h3>
-        <p className="mt-2 max-w-sm text-muted">The Trust office has received your enquiry and will contact you on the mobile number you provided.</p>
-        <button type="button" onClick={() => setStatus("idle")} className="mt-6 rounded-full px-5 py-2.5 text-sm font-semibold text-brand-700 ring-1 ring-brand-200 hover:bg-brand-50">
+        <h3 className="mt-5 text-2xl font-extrabold text-navy">Thank you — message sent</h3>
+        <p className="mt-2 max-w-sm text-xs text-muted leading-relaxed">
+          The Trust office has received your enquiry and will contact you on the mobile number you provided.
+        </p>
+        <button
+          type="button"
+          onClick={() => setStatus("idle")}
+          className="mt-6 rounded-full px-5 py-2.5 text-xs font-bold text-deep-teal ring-1 ring-deep-teal/30 hover:bg-pale-teal transition"
+        >
           Send another message
         </button>
       </div>
@@ -87,43 +93,53 @@ export function ContactForm({ email }: { email: string }) {
     "aria-invalid": touched[key] && errors[key] ? true : undefined,
     "aria-describedby": touched[key] && errors[key] ? `cf-${key}-error` : undefined,
     className: cn(
-      "w-full rounded-xl border bg-white px-4 text-[0.95rem] text-ink transition placeholder:text-muted/60 focus:ring-4 focus:outline-none",
-      touched[key] && errors[key] ? "border-red-400 focus:border-red-500 focus:ring-red-100" : "border-line focus:border-brand-400 focus:ring-brand-100",
+      "w-full rounded-xl border bg-white px-4 text-sm text-navy transition placeholder:text-muted/60 focus:ring-4 focus:outline-none",
+      touched[key] && errors[key]
+        ? "border-red-400 focus:border-red-500 focus:ring-red-100"
+        : "border-line focus:border-teal focus:ring-pale-teal",
     ),
   });
 
   const error = (key: keyof ContactPayload) =>
     touched[key] && errors[key] ? (
-      <p id={`cf-${key}-error`} className="mt-1.5 flex items-center gap-1 text-sm text-red-700">
-        <CircleAlert className="size-4" aria-hidden="true" />
+      <p id={`cf-${key}-error`} className="mt-1.5 flex items-center gap-1 text-xs font-semibold text-red-700">
+        <CircleAlert className="size-3.5" aria-hidden="true" />
         {errors[key]}
       </p>
     ) : null;
 
   const label = (key: keyof ContactPayload, text: string, required = false) => (
-    <label htmlFor={`cf-${key}`} className="mb-1.5 block text-sm font-semibold text-ink">
-      {text} {required ? <span className="text-red-600" aria-hidden="true">*</span> : <span className="font-normal text-muted">(optional)</span>}
+    <label htmlFor={`cf-${key}`} className="mb-1.5 block text-xs font-bold text-navy uppercase tracking-wider">
+      {text} {required ? <span className="text-red-600" aria-hidden="true">*</span> : <span className="font-normal text-muted lowercase">(optional)</span>}
     </label>
   );
 
   return (
-    <form onSubmit={onSubmit} noValidate className="card p-6 sm:p-8" aria-labelledby="contact-form-title">
-      <h2 id="contact-form-title" className="text-2xl font-bold">
+    <form
+      onSubmit={onSubmit}
+      noValidate
+      className="card p-6 sm:p-8 bg-white border border-line shadow-soft"
+      aria-labelledby="contact-form-title"
+    >
+      <h2 id="contact-form-title" className="text-2xl font-extrabold text-navy">
         Send us a message
       </h2>
-      <p className="mt-1 text-sm text-muted">
-        Fields marked <span className="text-red-600">*</span> are required.
+      <p className="mt-1 text-xs text-muted">
+        Fields marked <span className="text-red-600 font-bold">*</span> are required.
       </p>
 
       {(status === "error" || status === "unavailable") && (
-        <div role="alert" className="mt-6 rounded-2xl bg-saffron-50 p-4 text-sm text-saffron-700 ring-1 ring-saffron-100">
-          <p className="flex items-center gap-2 font-semibold">
-            <CircleAlert className="size-5" aria-hidden="true" />
+        <div role="alert" className="mt-6 rounded-2xl bg-pale-cream p-4 text-xs text-saffron-700 ring-1 ring-gold/30">
+          <p className="flex items-center gap-2 font-bold">
+            <CircleAlert className="size-4 shrink-0 text-gold" aria-hidden="true" />
             {status === "unavailable" ? "Online form delivery is not available right now." : "Sorry, your message could not be sent."}
           </p>
           <p className="mt-1">You can send the same message directly by e-mail, or call the office.</p>
-          <a href={mailtoHref} className="mt-3 inline-flex h-10 items-center gap-2 rounded-full bg-brand-700 px-4 font-semibold text-white hover:bg-brand-800">
-            <Mail className="size-4" aria-hidden="true" /> Send via e-mail app
+          <a
+            href={mailtoHref}
+            className="mt-3 inline-flex h-9 items-center gap-2 rounded-full bg-deep-teal px-4 text-xs font-bold text-white hover:bg-navy transition"
+          >
+            <Mail className="size-3.5" aria-hidden="true" /> Send via e-mail app
           </a>
         </div>
       )}
@@ -176,15 +192,15 @@ export function ContactForm({ email }: { email: string }) {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="mt-7 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-brand-700 px-6 font-semibold text-white shadow-soft transition hover:bg-brand-800 disabled:opacity-70 sm:w-auto"
+        className="btn-shimmer mt-7 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-deep-teal px-6 text-xs font-bold text-white shadow-md transition hover:bg-navy disabled:opacity-70 sm:w-auto cursor-pointer"
       >
         {status === "submitting" ? (
           <>
-            <LoaderCircle className="size-5 animate-spin" aria-hidden="true" /> Sending…
+            <LoaderCircle className="size-4 animate-spin" aria-hidden="true" /> Sending…
           </>
         ) : (
           <>
-            <Send className="size-5" aria-hidden="true" /> Send message
+            <Send className="size-4 text-warm-gold" aria-hidden="true" /> Send message
           </>
         )}
       </button>

@@ -23,9 +23,9 @@ export default function NoticesPage() {
       />
       <section className="py-14 sm:py-16">
         <div className="container-page">
-          <p className="mb-8 flex items-center gap-2 text-sm text-muted">
-            <BellRing className="size-4 text-saffron-600" aria-hidden="true" />
-            All notices published by the Trust on its website are listed here.
+          <p className="mb-8 flex items-center gap-2 text-xs font-semibold text-muted">
+            <BellRing className="size-4 text-gold" aria-hidden="true" />
+            <span>All notices published by the Trust on its website are listed here.</span>
           </p>
           <NoticeList notices={sortedNotices} />
         </div>

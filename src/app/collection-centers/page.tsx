@@ -26,16 +26,19 @@ export default function CollectionCentresPage() {
         ]}
         description={`Deposit your death-aid contribution at any of the ${collectionCentres.length} authorised centres across ${collectionCities.length} cities and villages — or pay online.`}
         aside={
-          <div className="no-print hidden w-72 rounded-3xl bg-white p-6 shadow-lift ring-1 ring-line lg:block">
-            <span className="grid size-11 place-items-center rounded-xl bg-saffron-50 text-saffron-600">
-              <Building2 className="size-5" aria-hidden="true" />
+          <div className="no-print hidden w-72 rounded-3xl bg-white p-6 shadow-lift border border-line lg:block">
+            <span className="grid size-11 place-items-center rounded-xl bg-pale-cream text-saffron-700">
+              <Building2 className="size-5 text-gold" aria-hidden="true" />
             </span>
-            <p className="mt-4 text-sm font-bold">Main office centre</p>
-            <p lang="gu" className="mt-1 text-sm text-muted">
+            <p className="mt-4 text-sm font-bold text-navy">Main office centre</p>
+            <p lang="gu" className="mt-1 text-xs text-muted leading-relaxed">
               વેલફેર ટ્રસ્ટની ઓફીસ, ગુરૂનાનક ચોક, પાલનપુર
             </p>
-            <a href={contact.phoneHref} className="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-brand-700">
-              <Phone className="size-4" aria-hidden="true" /> {contact.phoneDisplayEn}
+            <a
+              href={contact.phoneHref}
+              className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-deep-teal hover:text-teal"
+            >
+              <Phone className="size-3.5" aria-hidden="true" /> {contact.phoneDisplayEn}
             </a>
           </div>
         }
@@ -44,9 +47,9 @@ export default function CollectionCentresPage() {
           href={site.crmUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex h-11 items-center gap-2 rounded-full bg-saffron-500 px-5 font-semibold text-brand-900 transition hover:bg-saffron-400"
+          className="btn-shimmer inline-flex h-11 items-center gap-2 rounded-full bg-gold px-5 text-xs font-bold text-navy shadow-md transition hover:bg-warm-gold hover:-translate-y-0.5"
         >
-          Collection Chart / Pay online <ArrowUpRight className="size-4" aria-hidden="true" />
+          <span>Collection Chart / Pay online</span> <ArrowUpRight className="size-3.5" aria-hidden="true" />
           <span className="sr-only"> (opens in a new tab)</span>
         </a>
         <PrintButton label="Print directory" />

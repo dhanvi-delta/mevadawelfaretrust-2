@@ -14,31 +14,48 @@ interface PageHeroProps {
   aside?: ReactNode;
 }
 
-/** Inner-page header with breadcrumbs, bilingual title and optional side slot. */
-export function PageHero({ title, titleGu, description, breadcrumbs, eyebrow, children, aside }: PageHeroProps) {
+/** Inner-page slim teal banner with breadcrumbs, bilingual title and subtle heritage pattern. */
+export function PageHero({
+  title,
+  titleGu,
+  description,
+  breadcrumbs,
+  eyebrow,
+  children,
+  aside,
+}: PageHeroProps) {
   const trail = [{ name: "Home", path: "/" }, ...breadcrumbs];
   return (
-    <section className="relative overflow-hidden border-b border-line/70 bg-gradient-to-b from-mint/70 via-cream to-cream">
+    <section className="relative overflow-hidden border-b border-line bg-gradient-to-br from-pale-teal/70 via-mist/50 to-ivory py-10 sm:py-14">
       <JsonLd data={breadcrumbJsonLd(trail)} />
-      <div aria-hidden="true" className="bg-dots absolute inset-y-0 right-0 hidden w-1/2 opacity-60 [mask-image:linear-gradient(to_left,black,transparent)] md:block" />
-      <div aria-hidden="true" className="absolute -top-24 -right-24 size-72 rounded-full bg-saffron-100/60 blur-3xl" />
-      <div className="container-page relative py-12 sm:py-16 lg:py-20">
-        <nav aria-label="Breadcrumb" className="no-print mb-6">
-          <ol className="flex flex-wrap items-center gap-1 text-sm text-muted">
+
+      {/* Background subtle jali pattern & soft glow */}
+      <div aria-hidden="true" className="bg-jali pointer-events-none absolute inset-0 opacity-40" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-24 right-0 size-80 rounded-full bg-teal/10 blur-3xl"
+      />
+
+      <div className="container-page relative">
+        <nav aria-label="Breadcrumb" className="no-print mb-4">
+          <ol className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-muted">
             {trail.map((crumb, i) => {
               const last = i === trail.length - 1;
               return (
-                <li key={crumb.path} className="flex items-center gap-1">
+                <li key={crumb.path} className="flex items-center gap-1.5">
                   {last ? (
-                    <span aria-current="page" className="font-medium text-brand-800">
+                    <span aria-current="page" className="font-semibold text-deep-teal">
                       {crumb.name}
                     </span>
                   ) : (
                     <>
-                      <Link href={crumb.path} className="rounded hover:text-brand-700 hover:underline">
+                      <Link
+                        href={crumb.path}
+                        className="transition-colors hover:text-navy hover:underline"
+                      >
                         {crumb.name}
                       </Link>
-                      <ChevronRight aria-hidden="true" className="size-3.5 opacity-60" />
+                      <ChevronRight aria-hidden="true" className="size-3 text-gold/70" />
                     </>
                   )}
                 </li>
@@ -46,19 +63,31 @@ export function PageHero({ title, titleGu, description, breadcrumbs, eyebrow, ch
             })}
           </ol>
         </nav>
-        <div className={aside ? "grid items-end gap-10 lg:grid-cols-[1fr_auto]" : undefined}>
+
+        <div className={aside ? "grid items-end gap-8 lg:grid-cols-[1fr_auto]" : undefined}>
           <div className="max-w-3xl animate-fade-up">
-            {eyebrow && <p className="eyebrow mb-4">{eyebrow}</p>}
-            <h1 className="text-[2rem] leading-tight font-extrabold sm:text-5xl">{title}</h1>
+            {eyebrow && <p className="eyebrow mb-2.5">{eyebrow}</p>}
+
+            <h1 className="text-2xl font-extrabold tracking-tight text-navy sm:text-4xl lg:text-[2.65rem]">
+              {title}
+            </h1>
+
             {titleGu && (
-              <p lang="gu" className="mt-3 text-xl font-semibold text-brand-600 sm:text-2xl">
+              <p lang="gu" className="mt-2 text-lg font-semibold text-teal sm:text-xl">
                 {titleGu}
               </p>
             )}
-            {description && <div className="mt-5 max-w-2xl text-base text-muted sm:text-lg">{description}</div>}
-            {children && <div className="mt-8 flex flex-wrap gap-3">{children}</div>}
+
+            {description && (
+              <div className="mt-3 text-base text-muted sm:text-lg leading-relaxed">
+                {description}
+              </div>
+            )}
+
+            {children && <div className="mt-6 flex flex-wrap gap-3">{children}</div>}
           </div>
-          {aside}
+
+          {aside && <div className="mt-4 lg:mt-0 animate-fade-up [animation-delay:100ms]">{aside}</div>}
         </div>
       </div>
     </section>

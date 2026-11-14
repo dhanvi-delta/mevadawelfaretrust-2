@@ -24,10 +24,12 @@ export default function DownloadsPage() {
       <section className="py-14 sm:py-16">
         <div className="container-page">
           <DocumentLibrary documents={documents} categories={documentCategories} />
-          <p className="mt-10 flex gap-3 rounded-2xl bg-sand/80 p-5 text-sm text-muted">
-            <Info className="mt-0.5 size-5 shrink-0 text-brand-600" aria-hidden="true" />
-            Application, claim and nominee-change forms are issued by the Trust office. Contact the office or your nearest
-            collection centre to obtain them.
+          <p className="mt-10 flex gap-3 rounded-2xl bg-pale-cream/60 p-5 text-xs text-muted border border-gold/30">
+            <Info className="mt-0.5 size-4.5 shrink-0 text-gold" aria-hidden="true" />
+            <span className="leading-relaxed">
+              Application, claim and nominee-change forms are issued by the Trust office. Contact the office or your nearest
+              collection centre to obtain them.
+            </span>
           </p>
         </div>
       </section>

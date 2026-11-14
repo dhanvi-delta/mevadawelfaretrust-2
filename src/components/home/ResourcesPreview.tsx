@@ -9,8 +9,8 @@ const featured = ["scheme-rules", "notice-june-2022", "claim-form", "crm-portal"
 export function ResourcesPreview() {
   const items = featured.map((id) => documents.find((d) => d.id === id)!).filter(Boolean);
   return (
-    <section className="py-20 sm:py-24" aria-labelledby="resources-heading">
-      <div className="container-page">
+    <section className="relative overflow-hidden py-20 sm:py-24" aria-labelledby="resources-heading">
+      <div className="container-page relative">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <SectionHeading
             id="resources-heading"
@@ -21,7 +21,7 @@ export function ResourcesPreview() {
             View all resources
           </ButtonLink>
         </div>
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((doc, i) => (
             <Reveal key={doc.id} delay={i * 70}>
               <DocumentCard doc={doc} />
