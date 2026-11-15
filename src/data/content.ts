@@ -65,9 +65,9 @@ export const verifiedStats = [
     format: "plain" as const,
   },
   {
-    value: 7187,
+    value: 7941,
     label: "Member numbers allotted",
-    detail: "Highest range (7186–7187) in the June-2022 notice",
+    detail: "Total Members",
     format: "number" as const,
   },
   {
