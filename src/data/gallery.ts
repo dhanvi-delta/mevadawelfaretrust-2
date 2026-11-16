@@ -402,6 +402,14 @@ export const galleryImages: GalleryImage[] = [
   },
   // ── સાધારણ સભા 2019 (તા. 3-11-2019, રવિવાર) ──
   {
+    src: "/gallery/2019/lamp-lighting.jpg",
+    width: 1800,
+    height: 1198,
+    alt: "Members lighting the ceremonial lamp in front of a garlanded portrait at the start of the General Assembly, 2019",
+    caption: "દીપ પ્રાગટ્ય — સાધારણ સભા 2019",
+    category: "year-2019",
+  },
+  {
     src: "/gallery/2019/audience-members.jpg",
     width: 1800,
     height: 1198,
@@ -450,6 +458,14 @@ export const galleryImages: GalleryImage[] = [
     category: "year-2019",
   },
   {
+    src: "/gallery/2019/welcome-05.jpg",
+    width: 1800,
+    height: 1198,
+    alt: "A guest being welcomed with a bouquet, 2019",
+    caption: "પુષ્પગુચ્છથી સ્વાગત — સાધારણ સભા 2019",
+    category: "year-2019",
+  },
+  {
     src: "/gallery/2019/speaker-01.jpg",
     width: 1800,
     height: 1198,
@@ -463,6 +479,30 @@ export const galleryImages: GalleryImage[] = [
     height: 1198,
     alt: "A speaker addressing the General Assembly from the podium in front of the Trust banner, 2019",
     caption: "સભાને સંબોધન — સાધારણ સભા 2019",
+    category: "year-2019",
+  },
+  {
+    src: "/gallery/2019/speaker-03.jpg",
+    width: 1800,
+    height: 1198,
+    alt: "A speaker addressing the General Assembly from the podium in front of the Trust banner, 2019",
+    caption: "સભાને સંબોધન — સાધારણ સભા 2019",
+    category: "year-2019",
+  },
+  {
+    src: "/gallery/2019/speaker-04.jpg",
+    width: 1800,
+    height: 1198,
+    alt: "A speaker addressing the General Assembly from the podium in front of the Trust banner, 2019",
+    caption: "સભાને સંબોધન — સાધારણ સભા 2019",
+    category: "year-2019",
+  },
+  {
+    src: "/gallery/2019/dance.jpg",
+    width: 1800,
+    height: 1198,
+    alt: "Girls in traditional costume performing a folk dance in front of the stage, 2019",
+    caption: "સાંસ્કૃતિક નૃત્ય — સાધારણ સભા 2019",
     category: "year-2019",
   },
   {
