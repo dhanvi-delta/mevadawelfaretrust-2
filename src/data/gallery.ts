@@ -418,6 +418,14 @@ export const galleryImages: GalleryImage[] = [
     category: "year-2019",
   },
   {
+    src: "/gallery/2019/audience-front-rows.jpg",
+    width: 1800,
+    height: 1198,
+    alt: "Members wearing rosettes seated in the front rows of the audience under the decorated pandal, 2019",
+    caption: "ઉપસ્થિત સભાસદો — સાધારણ સભા 2019",
+    category: "year-2019",
+  },
+  {
     src: "/gallery/2019/audience-women.jpg",
     width: 1800,
     height: 1198,
