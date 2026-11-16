@@ -92,7 +92,7 @@ export interface GalleryImage {
   height: number;
   alt: string;
   caption: string;
-  category: "year-2025" | "year-2022" | "assembly" | "committee" | "activities";
+  category: "year-2025" | "year-2022" | "year-2016" | "assembly" | "committee" | "activities";
 }
 
 export interface ResourceDocument {
