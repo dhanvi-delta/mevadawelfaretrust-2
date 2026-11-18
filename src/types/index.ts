@@ -32,20 +32,6 @@ export interface PhotoCommitteeGroup {
   members: OfficeBearer[];
 }
 
-export interface CommitteeMember {
-  serial: string; // original serial number (Gujarati digits)
-  name: string;
-  village: string;
-  phone: string; // "-" when not published
-}
-
-export interface CommitteeGroup {
-  id: string;
-  title: string; // Gujarati
-  titleEn: string;
-  members: CommitteeMember[];
-}
-
 export interface CollectionCentre {
   city: string; // Gujarati
   cityEn: string;

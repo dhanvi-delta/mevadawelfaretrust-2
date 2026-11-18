@@ -1,4 +1,4 @@
-import type { CommitteeGroup, OfficeBearer, PhotoCommitteeGroup } from "@/types";
+import type { OfficeBearer, PhotoCommitteeGroup } from "@/types";
 
 /** કારોબારી સમીતી — transcribed from Executivegroup.html */
 export const committeeTitleGu = "કારોબારી સમીતી";
@@ -37,7 +37,7 @@ export const photoCommitteeGroups: PhotoCommitteeGroup[] = [
         roleEn: "Vice President",
         name: "મેવાડા અમૃતલાલ પિતાંબરદાસ",
         village: "લક્ષ્મીપુરા",
-        phone: "-",
+        phone: "૯૮૨૫૫ ૯૭૧૧૯",
         photo: "/images/committee-2025/amrutlal-p-mevada.jpg",
       },
       {
@@ -55,7 +55,7 @@ export const photoCommitteeGroups: PhotoCommitteeGroup[] = [
         roleEn: "Joint Secretary",
         name: "મેવાડા જયંતિલાલ કાળીદાસ",
         village: "ગઠામણ",
-        phone: "-",
+        phone: "૯૮૨૫૩ ૦૩૨૪૮",
         photo: "/images/committee-2025/jayantilal-k-mevada.jpg",
       },
       {
@@ -64,7 +64,7 @@ export const photoCommitteeGroups: PhotoCommitteeGroup[] = [
         roleEn: "Treasurer",
         name: "મેવાડા હિતેષકુમાર પ્રહલાદભાઈ",
         village: "ટાકરવાડા",
-        phone: "-",
+        phone: "૯૭૨૭૭ ૯૫૯૧૮",
         photo: "/images/committee-2025/hiteshkumar-p-mevada.jpg",
       },
     ],
@@ -443,64 +443,3 @@ export const photoCommitteeGroups: PhotoCommitteeGroup[] = [
 
 /** Current office bearers (used on the home page preview). */
 export const officeBearers: OfficeBearer[] = photoCommitteeGroups[0].members;
-
-export const committeeGroups: CommitteeGroup[] = [
-  {
-    id: "executive-members",
-    title: "કારોબારી સભ્યશ્રીઓ",
-    titleEn: "Executive Members",
-    members: [
-      { serial: "૭", name: "અમૃતલાલ પીતાંબરદાસ મેવાડા", village: "લક્ષ્મીપુરા", phone: "૯૮૨૫૫ ૯૭૧૧૯" },
-      { serial: "૮", name: "જયંતિલાલ શંકરલાલ મેવાડા", village: "નેદ્રા", phone: "૯૪૨૬૪ ૧૮૩૭૦" },
-      { serial: "૯", name: "નટવરભાઇ ચંદુલાલ મેવાડા", village: "બસુ", phone: "૯૮૬૯૯ ૦૫૯૧૮" },
-      { serial: "૧૦", name: "બાબુલાલ લલ્લુરામ મેવાડા", village: "મુમનવાસ", phone: "૯૯૯૮૪ ૭૨૯૨૪" },
-      { serial: "૧૧", name: "પોપટલાલ હરીલાલ મેવાડા", village: "જલોત્રા", phone: "૯૯૨૫૯ ૪૯૨૬૧" },
-      { serial: "૧૨", name: "નરેન્દ્રભાઇ જેચંદદાસ મેવાડા", village: "ટીંબાચુડી", phone: "૯૩૨૮૪ ૨૬૩૯૧" },
-      { serial: "૧૩", name: "જયંતિભાઇ ઇશ્વરલાલ મેવાડા", village: "ઘારેવાડા", phone: "૯૪૨૯૧ ૨૩૩૨૧" },
-      { serial: "૧૪", name: "દિલી૫ભાઇ ઇશ્વરલાલ મેવાડા", village: "જગાણા", phone: "૭૬૦૦૮ ૬૦૨૧૯" },
-      { serial: "૧૫", name: "રમેશભાઇ કાળીદાસ મેવાડા", village: "પેપોળ", phone: "૯૪૨૮૧ ૩૭૫૪૬" },
-      { serial: "૧૬", name: "જયંતિભાઇ કાળીદાસ મેવાડા", village: "ગઠામણ", phone: "૯૮૨૫૩ ૦૩૨૪૮" },
-      { serial: "૧૭", name: "કોકીલભાઇ સોમનાથદાસ મેવાડા", village: "નાગવાસણ", phone: "૯૮૨૫૧ ૪૩૦૫૧" },
-      { serial: "૧૮", name: "ગણ૫તભાઇ દેવચંદદાસ મેવાડા", village: "કાણોદર", phone: "૯૯૭૪૧ ૫૦૯૨૨" },
-      { serial: "૧૯", name: "સતિષકુમાર પ્રવિણચંદ્ર મેવાડા", village: "જુનાડીસા", phone: "૯૬૮૭૬ ૫૫૧૭૧" },
-      { serial: "૨૦", name: "જશવંતભાઇ ડુંગરદાસ મેવાડા", village: "પાલનપુર", phone: "૯૯૦૪૪ ૩૦૬૨૫" },
-      { serial: "૨૧", name: "કાંતિભાઇ મણીલાલ મેવાડા", village: "વરસડા", phone: "૯૮૭૯૭ ૯૧૪૨૫" },
-      { serial: "૨૨", name: "રતિલાલ ગટારામ મેવાડા", village: "છનિયાણા", phone: "૯૩૨૭૯ ૫૦૯૪૪" },
-      { serial: "૨૩", name: "અરવિંદભાઇ હરગોવિંદદાસ મેવાડા", village: "ઉંમરૂ", phone: "૯૮૨૫૫ ૧૪૩૮૦" },
-      { serial: "૨૪", name: "કનૈયાલાલ શંકરલાલ મેવાડા", village: "વડગામ", phone: "૯૪૨૬૩ ૮૮૪૮૫" },
-      { serial: "૨૫", name: "રોહિતભાઇ જયંતિલાલ મેવાડા", village: "સમોડા", phone: "૯૯૨૪૬ ૧૩૭૫૭" },
-      { serial: "૨૬", name: "દિનેશભાઇ હરગોવિંદદાસ મેવાડા", village: "રૂપાલ", phone: "-" },
-      { serial: "૨૭", name: "નવિનભાઇ જયંતિલાલ મેવાડા", village: "રાજપુર", phone: "૯૮૨૫૦ ૮૩૩૮૯" },
-      { serial: "૨૮", name: "પ્રવિણભાઇ લક્ષ્મિચંદદાસ મેવાડા", village: "મેમદપુર", phone: "૯૯૭૯૦ ૩૦૬૧૧" },
-      { serial: "૨૯", name: "કાંતિભાઇ હિરાલાલ મેવાડા", village: "ચડોતર", phone: "૯૯૭૯૭ ૮૯૧૨૨" },
-    ],
-  },
-  {
-    id: "internal-auditors",
-    title: "આંતરીક ઓડીટરશ્રીઓ",
-    titleEn: "Internal Auditors",
-    members: [
-      { serial: "૧", name: "ગીરીશભાઇ સોમાલાલ", village: "કોદરાલી (છાપી)", phone: "૯૮૨૫૬ ૨૩૩૫૧" },
-      { serial: "૨", name: "૫રેશકુમાર મણીલાલ", village: "રસલુપુર", phone: "૯૪૨૭૬ ૮૦૫૩૭" },
-    ],
-  },
-  {
-    id: "advisors",
-    title: "સલાહકારશ્રીઓ",
-    titleEn: "Advisors",
-    members: [
-      { serial: "૧", name: "ચીમનલાલ બેચરદાસ મેવાડા", village: "ગણેશપુરા (પા)", phone: "૯૮૨૫૬ ૨૩૩૫૧" },
-      { serial: "૨", name: "ગણ૫તલાલ નારાયણદાસ મેવાડા", village: "ટાકરવાડા", phone: "૯૪૨૭૬ ૮૦૫૩૭" },
-      { serial: "૩", name: "મણીલાલ મગનલાલ મેવાડા", village: "રસલુપુર", phone: "૦૨૭૬૭ ૨૨૬૩૭" },
-      { serial: "૪", name: "ચમનલાલ નરભેરામ મેવાડા", village: "મેમદપુર", phone: "૯૮૨૧૦ ૭૦૧૮૬" },
-      { serial: "૫", name: "બાબુભાઇ લલ્લુરામ મેવાડા", village: "જગન્નાથપુરા", phone: "૯૩૨૭૬ ૯૯૯૭૫" },
-      { serial: "૬", name: "દર્શનભાઇ નટવરલાલ મેવાડા", village: "વડગામ", phone: "૯૮૨૫૦ ૧૩૦૯૬" },
-      { serial: "૭", name: "બાબુભાઇ હેમચંદદાસ મેવાડા", village: "ફતેગઢ", phone: "૯૮૨૦૧ ૧૬૯૩૧" },
-      { serial: "૮", name: "દુર્લભરામ જીવરામદાસ મેવાડા", village: "ટાકરવાડા", phone: "૯૮૨૫૨ ૯૫૮૬૧" },
-      { serial: "૯", name: "ભીખાલાલ કેશવલાલ મેવાડા", village: "વણસોલ", phone: "૯૪૨૬૩ ૪૩૭૭૦" },
-      { serial: "૧૦", name: "દેવચંદદાસ મોહનલાલ મેવાડા", village: "જામપુરા", phone: "૯૪૨૯૦ ૮૮૩૮૮" },
-      { serial: "૧૧", name: "અમૃતલાલ શંકરલાલ મેવાડા", village: "મેતા", phone: "૯૮૨૫૪ ૬૩૨૩૭" },
-      { serial: "૧૨", name: "રમણલાલ નારાયણદાસ મેવાડા", village: "માહી", phone: "૯૩૭૬૯ ૪૩૦૩૦" },
-    ],
-  },
-];
