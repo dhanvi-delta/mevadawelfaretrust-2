@@ -64,7 +64,7 @@ export const photoCommitteeGroups: PhotoCommitteeGroup[] = [
         roleEn: "Treasurer",
         name: "મેવાડા હિતેષકુમાર પ્રહલાદભાઈ",
         village: "ટાકરવાડા",
-        phone: "-",
+        phone: "૯૭૨૭૭ ૯૫૯૧૮",
         photo: "/images/committee-2025/hiteshkumar-p-mevada.jpg",
       },
     ],
